@@ -12,8 +12,8 @@ namespace HolidayInnReadModels
         List<BookingModel> LoadBookings();
         BookingModel GetBooking(Guid bookingGuid);
         int CreateBooking(Guid id, string name, string phone, string email, DateTime checkInDate, DateTime checkOutDate);
-        int CancelBooking(Guid bookingGuid);
-        int CheckOut(Guid bookingGuid);
+        int CancelBooking(Guid bookingGuid, DateTime cancelledDate);
+        int CheckOut(Guid bookingGuid, DateTime checkedOutDate);
 
     }
 }

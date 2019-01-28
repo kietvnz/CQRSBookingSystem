@@ -31,18 +31,18 @@ namespace DataAccess
             return SqlDataAccess.SingleOrDefault<BookingModel>(sql, new { BookingGuid = bookingGuid });
         }
 
-        public int CancelBooking(Guid bookingGuid)
+        public int CancelBooking(Guid bookingGuid, DateTime cancelledDate)
         {
             string sql = @"dbo.Booking_CancelById @BookingGuid, @CancelledDate";
 
-            return SqlDataAccess.SaveData(sql, new { BookingGuid = bookingGuid, CancelledDate = DateTime.Now});
+            return SqlDataAccess.SaveData(sql, new { BookingGuid = bookingGuid, CancelledDate = cancelledDate });
         }
 
-        public int CheckOut(Guid bookingGuid)
+        public int CheckOut(Guid bookingGuid, DateTime checkedOutDate)
         {
             string sql = @"dbo.Booking_CheckOutById @BookingGuid, @CheckedOutDate";
 
-            return SqlDataAccess.SaveData(sql, new { BookingGuid = bookingGuid, CheckedOutDate = DateTime.Now });
+            return SqlDataAccess.SaveData(sql, new { BookingGuid = bookingGuid, CheckedOutDate = checkedOutDate });
         }
     }
 }

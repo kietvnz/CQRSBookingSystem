@@ -36,12 +36,12 @@ namespace HolidayInnReadModels
 
         public void Handle(BookingCancelled e)
         {
-            this.bookingRepo.CancelBooking(e.Id);
+            this.bookingRepo.CancelBooking(e.Id, e.CancelledDate);
         }
 
         public void Handle(BookingCheckedOut e)
         {
-            this.bookingRepo.CheckOut(e.Id);
+            this.bookingRepo.CheckOut(e.Id, e.CheckedOutDate);
         }
     }
 }
